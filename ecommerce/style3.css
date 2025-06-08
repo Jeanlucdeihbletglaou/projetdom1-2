@@ -1,0 +1,242 @@
+/* Structure générale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+/* Conteneur général */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* En-tête */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  font-weight: bold;
+}
+
+.logo {
+  float: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    
+}
+
+.nav-links a { 
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+    letter-spacing: 0.5px;
+}
+
+
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: hsl(180, 9%, 90%);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: #00e0ff;
+}
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Section Produits */
+.produits-section {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.produit {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.produit:hover {
+  transform: scale(1.03);
+}
+
+.produit img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.produit h3 {
+  margin: 15px 0 10px;
+}
+
+.produit p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.produit button {
+  margin-top: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.produit button:hover {
+  background-color: #555;
+}
+
+/* Pied de page */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+  color: #ccc;
+}
+
+.Contact-section {
+  margin: 10px;
+}
+
+.Accueil p {margin-top: 10px;
+margin-bottom: 10px;
+padding: auto;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo, nav {
+    float: none;
+    text-align: center;
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+.img-fluid {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: apparitionZoom 5s ease-in-out forwards;
+  animation-delay: 0.5s;
+  border-radius: 10px 10px;
+  height: 40%;
+  cursor: pointer;
+}
+
+@keyframes apparitionZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 1024px) {
+  .produits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .produits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .À\ propos-section .row, .Contact-section .row {
+    flex-direction: column;
+  }
+
+  .col-md-6 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}
